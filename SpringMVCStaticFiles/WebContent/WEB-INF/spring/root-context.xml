@@ -8,4 +8,17 @@
 	<context:annotation-config/>
 	<context:component-scan base-package="com.tadigital.mvc.dao"/>
 	<context:component-scan base-package="com.tadigital.mvc.service"/>
+	
+	<bean id="vendorDao" class="com.tadigital.mvc.dao.VendorDaoImp" >
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ecommercedb" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
 </beans>

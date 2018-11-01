@@ -9,6 +9,7 @@ import com.tadigital.mvc.entity.Vendor;
 @Component
 public class vendorServiceImp implements VendorService {
 	private VendorDaoImp vendorDao;
+	 
 
 	@Autowired
 	public void setVendorDao(VendorDaoImp vendorDao) {
@@ -16,8 +17,8 @@ public class vendorServiceImp implements VendorService {
 	}
 
 	@Override
-	public boolean loginService(Vendor vendor) {
-		return false;
+	public Vendor loginService(Vendor vendor) {
+		return vendorDao.loginVendor(vendor);
 	}
 
 	@Override

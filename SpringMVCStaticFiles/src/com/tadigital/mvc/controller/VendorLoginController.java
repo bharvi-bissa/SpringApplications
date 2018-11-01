@@ -1,6 +1,7 @@
 package com.tadigital.mvc.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,19 +21,24 @@ public class VendorLoginController {
 		this.vendorService = vendorService;
 	}
 
-	@RequestMapping(value="/login" , method=RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request) {
+		
 		Vendor vendor = new Vendor();
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		vendor.setEmail(email);
 		vendor.setPassword(password);
 
-		boolean status = vendorService.loginService(vendor);
-		if(status) {
+		Vendor status = vendorService.loginService(vendor);
+		if (status == null) {
+			return "LoginFailure.jsp";
+			
+		}
+		else{
+			HttpSession session = request.getSession();
+			session.setAttribute("VENDORDATA", status);
 			return "Dashboard.jsp";
 		}
-		return "LoginFailure.jsp";
-
 	}
 }
