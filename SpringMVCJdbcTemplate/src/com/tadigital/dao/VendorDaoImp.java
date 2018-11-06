@@ -56,9 +56,9 @@ public class VendorDaoImp implements VendorDao{
 	}
 	
 	public boolean registerVendor(Vendor v) {
-		String sql = "INSERT INTO vendor_information(vendor_email,vendor_password) VALUES(?,?);";
+		String sql = "INSERT INTO vendor_information(vendor_name, vendor_email,vendor_password) VALUES(?,?,?);";
 		
-		int rows = jdbcTemplate.update(sql,v.getEmail(),v.getPassword());
+		int rows = jdbcTemplate.update(sql,v.getName(),v.getEmail(),v.getPassword());
 		
 		return rows!= 0;
 	}
@@ -125,7 +125,7 @@ public class VendorDaoImp implements VendorDao{
 
 	@Override
 	public boolean updateVendor(Vendor v) {
-		String sql = "UPDATE vendor_information SET vendor_name= ?, vendor_email = ? WHERE id= ?";
+		String sql = "UPDATE vendor_information SET vendor_name= ?, vendor_email = ? WHERE vendor_id= ?";
 		
 		int rows = jdbcTemplate.update(sql, v.getName(), v.getEmail(), v.getId());
 		

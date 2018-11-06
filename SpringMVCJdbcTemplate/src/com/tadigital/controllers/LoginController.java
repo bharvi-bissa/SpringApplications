@@ -28,8 +28,12 @@ public class LoginController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String loginTask(@ModelAttribute Vendor v, HttpServletRequest req) {
-		
+	public String loginTask(HttpServletRequest request, HttpServletRequest req) {
+		String name = request.getParameter("password");
+		String email = request.getParameter("email");
+		Vendor v = new Vendor();
+		v.setPassword(name);
+		v.setEmail(email);
 		boolean b = vs.loginVendor(v);
 		
 		if(b) {

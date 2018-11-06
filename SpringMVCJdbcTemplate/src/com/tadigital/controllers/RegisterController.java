@@ -28,13 +28,19 @@ public class RegisterController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String registerTask(@ModelAttribute Vendor v,HttpServletRequest req) {
-	
+	public String registerTask(HttpServletRequest request,HttpServletRequest req) {
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		Vendor v = new Vendor();
+		v.setName(name);
+		v.setEmail(email);
+		v.setPassword(password);
 		boolean b = vs.registerVendor(v);
 		
 		if(b) {
-			return "registrationSuccess.jsp";
+			return "RegistrationSuccess.jsp";
 		}
-		return "registrationFailure.jsp";
+		return "RegistrationFailure.jsp";
 	}
 }
