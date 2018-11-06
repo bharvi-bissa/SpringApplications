@@ -21,6 +21,7 @@
 		%>
 				<tr>
 					<td><%= i  %></td>
+					<td><%= v.getName() %></td>
 					<td><%= v.getEmail() %></td>
 					<td><a href="edit<%= v.getId() %>">EDIT</a></td>
 					<td><a href="delete<%= v.getId() %>">DELETE</a></td>

@@ -63,9 +63,10 @@ public class VendorDaoImp implements VendorDao{
 	}
 	
 	public boolean registerVendor(Vendor vendor) {
-		String sql = "INSERT INTO vendor_information(vendor_email,vendor_password) VALUES(:vemail,:vpassword);";
+		String sql = "INSERT INTO vendor_information(vendor_name, vendor_email,vendor_password) VALUES(:vname,:vemail,:vpassword);";
 		MapSqlParameterSource parameters = new MapSqlParameterSource();
 		parameters.addValue("vemail", vendor.getEmail());
+		parameters.addValue("vname", vendor.getName());
 		parameters.addValue("vpassword", vendor.getPassword());
 		int rows = namedParameterJdbcTemplate.update(sql,parameters);
 		
@@ -136,7 +137,7 @@ public class VendorDaoImp implements VendorDao{
 
 	@Override
 	public boolean updateVendor(Vendor v) {
-		String sql = "UPDATE vendor_information SET vendor_name= :vname, vendor_email = :vemail WHERE id= :vid";
+		String sql = "UPDATE vendor_information SET vendor_name= :vname, vendor_email = :vemail WHERE vendor_id= :vid";
 		MapSqlParameterSource parameters = new MapSqlParameterSource();
 		parameters.addValue("vid", v.getId());
 		parameters.addValue("vname", v.getName());

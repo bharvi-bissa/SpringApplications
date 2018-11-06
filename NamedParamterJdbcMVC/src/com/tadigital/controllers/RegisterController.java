@@ -28,8 +28,14 @@ public class RegisterController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String registerTask(@ModelAttribute Vendor v,HttpServletRequest req) {
-	
+	public String registerTask(HttpServletRequest request,HttpServletRequest req) {
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		Vendor v = new Vendor();
+		v.setEmail(email);
+		v.setName(name);
+		v.setPassword(password);
 		boolean b = vs.registerVendor(v);
 		
 		if(b) {

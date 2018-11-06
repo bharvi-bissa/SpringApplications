@@ -13,8 +13,8 @@
 			<label>Name</label>
 			<input type="text" name="name" value="<%= v.getName() %>" />
 			<br>
-			<label>Username</label>
-			<input type="text" name="uname" value="<%= v.getEmail() %>" />
+			<label>Email</label>
+			<input type="text" name="email" value="<%= v.getEmail() %>" />
 			<br>
 			<br>
 			<input type="submit" value="Update" />

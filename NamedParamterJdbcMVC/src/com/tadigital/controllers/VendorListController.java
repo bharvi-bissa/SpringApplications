@@ -57,7 +57,7 @@ public class VendorListController {
 	public String updateVendor(HttpServletRequest req,HttpSession session) {
 		Vendor v = (Vendor)session.getAttribute("EDIT_VENDOR");
 		v.setName(req.getParameter("name"));
-		v.setEmail(req.getParameter("uname"));
+		v.setEmail(req.getParameter("email"));
 		if(vs.updateVendor(v)) {
 			session.setAttribute("EDIT_VENDOR", v);
 			return "vendorlist";
