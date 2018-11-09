@@ -1,0 +1,44 @@
+package com.tadigital.controllers;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.tadigital.entity.Vendor;
+import com.tadigital.service.VendorService;
+
+@Controller
+@RequestMapping(value = "/register")
+public class RegisterController {
+	
+	private VendorService vs;
+	
+	@Autowired
+	public RegisterController(VendorService vs) {
+		this.vs = vs;
+	}
+
+	@GetMapping
+	public String loadRegisterForm() {
+		return "html/registerForm.html";
+	}
+
+	@PostMapping
+	public String registerTask(@ModelAttribute Vendor v,@RequestParam Part part) {
+		v.setImgPart(part);
+		boolean b = vs.registerVendor(v);
+		
+		if(b) {
+			return "WEB-INF/views/RegistrationSuccess.jsp";
+		}
+		return "WEB-INF/views/RegistrationFailure.jsp";
+	}
+}
