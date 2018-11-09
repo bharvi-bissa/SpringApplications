@@ -41,8 +41,8 @@ public class VendorDaoImp implements VendorDao{
 		MapSqlParameterSource parameters = new MapSqlParameterSource();
 		parameters.addValue("vemail", vendor.getEmail());
 		parameters.addValue("vpassword", vendor.getPassword());
-		
-		Vendor ven = new Vendor();
+		boolean status = false;
+		Vendor ven = null;
 		try {
 			ven = namedParameterJdbcTemplate.queryForObject(sql, parameters, new RowMapper<Vendor>() {
 																						@Override
@@ -58,8 +58,9 @@ public class VendorDaoImp implements VendorDao{
 		} catch(EmptyResultDataAccessException erdae) {
 			erdae.printStackTrace();
 		}
-		
-		return ven!=null;
+		if(ven !=null)
+			status = true;
+		return status;
 	}
 	
 	public boolean registerVendor(Vendor vendor) {
