@@ -1,0 +1,27 @@
+2018-11-11 22:41:37 INFO ContextLoader:304 - Root WebApplicationContext: initialization started
+2018-11-11 22:41:37 INFO XmlWebApplicationContext:583 - Refreshing Root WebApplicationContext: startup date [Sun Nov 11 22:41:37 IST 2018]; root of context hierarchy
+2018-11-11 22:41:37 INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+2018-11-11 22:41:37 INFO DriverManagerDataSource:133 - Loaded JDBC driver: com.mysql.jdbc.Driver
+2018-11-11 22:41:37 INFO ContextLoader:344 - Root WebApplicationContext: initialization completed in 395 ms
+2018-11-11 22:41:37 INFO DispatcherServlet:489 - FrameworkServlet 'SpringFrontController': initialization started
+2018-11-11 22:41:37 INFO XmlWebApplicationContext:583 - Refreshing WebApplicationContext for namespace 'SpringFrontController-servlet': startup date [Sun Nov 11 22:41:37 IST 2018]; parent: Root WebApplicationContext
+2018-11-11 22:41:37 INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/web-context.xml]
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/ || /home]}" onto public java.lang.String com.tadigital.controllers.LinkController.reloadHome()
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.tadigital.controllers.LoginController.loginTask(com.tadigital.entity.Vendor,javax.servlet.http.HttpServletRequest)
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.tadigital.controllers.LoginController.loadLoginForm()
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/register],methods=[GET]}" onto public java.lang.String com.tadigital.controllers.RegisterController.loadRegisterForm()
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/register],methods=[POST]}" onto public java.lang.String com.tadigital.controllers.RegisterController.registerTask(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletRequest)
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/updateVendor]}" onto public java.lang.String com.tadigital.controllers.VendorListController.updateVendor(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpSession)
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/edit{vid}]}" onto public java.lang.String com.tadigital.controllers.VendorListController.editVendor(int,javax.servlet.http.HttpSession)
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/delete{vid}]}" onto public java.lang.String com.tadigital.controllers.VendorListController.deleteVendor(int,javax.servlet.http.HttpSession)
+2018-11-11 22:41:37 INFO RequestMappingHandlerMapping:543 - Mapped "{[/vendorlist]}" onto public java.lang.String com.tadigital.controllers.VendorListController.loadVendorList(javax.servlet.http.HttpSession)
+2018-11-11 22:41:38 INFO RequestMappingHandlerAdapter:556 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringFrontController-servlet': startup date [Sun Nov 11 22:41:37 IST 2018]; parent: Root WebApplicationContext
+2018-11-11 22:41:38 INFO RequestMappingHandlerAdapter:556 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringFrontController-servlet': startup date [Sun Nov 11 22:41:37 IST 2018]; parent: Root WebApplicationContext
+2018-11-11 22:41:38 INFO SimpleUrlHandlerMapping:362 - Mapped URL path [/csss/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-11-11 22:41:38 INFO SimpleUrlHandlerMapping:362 - Mapped URL path [/jss/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-11-11 22:41:38 INFO SimpleUrlHandlerMapping:362 - Mapped URL path [/html/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-11-11 22:41:38 INFO DispatcherServlet:508 - FrameworkServlet 'SpringFrontController': initialization completed in 449 ms
+2018-11-11 22:41:47 INFO LoggerAspect:15 - loginVendor execution started
+2018-11-11 22:41:47 INFO LoggerAspect:15 - loginProcess execution started
+2018-11-11 22:41:47 INFO LoggerAspect:17 - loginProcess execution finished with return value true
+2018-11-11 22:41:47 INFO LoggerAspect:17 - loginVendor execution finished with return value true
