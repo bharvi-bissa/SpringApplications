@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.tadigital.entity.Product" table="product_information" dynamic-insert="true">
+		<id name="id" column="product_id">
+			<generator class="assigned"/>
+		</id>
+		<property name="name" column="product_name"/>
+		<property name="vendorId" column="vendor_id"/>
+		<property name="price" column="product_price"/>
+		<property name="quantity" column="product_quantity"/>
+		<property name="description" column="product_description"/>
+	</class>
+</hibernate-mapping>
