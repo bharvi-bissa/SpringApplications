@@ -1,0 +1,35 @@
+/* your styles go here */
+.carousel-control-prev,
+.carousel-control-next{
+   bottom: 30%;
+}
+
+/* .carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: red;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: red;
+} */
+
+.fa-angle-left {
+	color: black;
+	font-weight: bolder;
+}
+
+.fa-angle-right {
+	color: black;
+	font-weight: bolder;
+}
+
+.carousel-control-prev{
+  left: -73px;
+}
+.carousel-control-next{
+  right: -67px;
+}
