@@ -1,23 +1,35 @@
-<%@page import="com.tadigital.mvc.entity.Product"%>
+<%@page import="com.techaspect.entity.Product"%>
 <%@page import="java.util.List"%>
-<%@page import="com.tadigital.mvc.dao.ProductDao"%>
-<%@page import="com.tadigital.mvc.entity.Address"%>
+<%@page import="com.techaspect.dao.ProductDao"%>
+<%@page import="com.techaspect.entity.Address"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.tadigital.mvc.entity.Customer"%>
+<%@page import="com.techaspect.entity.Customer"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection,java.util.Iterator"%>
-<% 	Customer c = (Customer)session.getAttribute("CUSTOMERDATA");	 %>		
+<% 	Customer customer = (Customer)session.getAttribute("CUSTOMERDATA");	 %>		
 <%@ include file="HeaderCustomer.jsp" %>
 <%	
-	if(c == null){
+	if(customer == null){
 		response.sendRedirect("index.jsp");
 	}
+    ProductDao productDao = ProductDao.getInstance();
+	int selectedProductId = Integer.parseInt(request.getParameter("id"));
+    //List<Product> productsList = productDao.getAllProducts();
     
-	Product theProduct = (Product)session.getAttribute("PRODUCTINFO");
-	
-%>
+    List<Product> productsList = (List)session.getAttribute("PRODUCTSLIST");
+    Product theProduct = new Product();
+    for(Product product : productsList) {
+		if(product.getId() == selectedProductId) {
+			theProduct = product;
+		}
+	}
+    
+    
+    
+    
+    %>
 <div class="container">
     <div class="row">
         <div class="col-md-6 pt-5 text-center">
@@ -37,7 +49,7 @@
                 </select>
             </div>
             <h1 class="text-secondary">&#x20B9;25000</h1>
-            <a href="addtocart<%= theProduct.getId() %>" class="btn btn-primary mt-2" style="background:none ;color:#4fbfa8;border:1px solid #4fbfa8;"><i class="fas fa-cart-arrow-down"></i>&nbsp;Add To Cart</a>
+            <a href="addtocart?pid=<%= theProduct.getId() %>&jsp=Mobile" class="btn btn-primary mt-2" style="background:none ;color:#4fbfa8;border:1px solid #4fbfa8;"><i class="fas fa-cart-arrow-down"></i>&nbsp;Add To Cart</a>
             <hr class="mt-5">
             <a href=""><img alt="" src="images/uploads/<%= theProduct.getImage2() %>" height="100px" width="90px" class="mr-5 mt-5"></a>
             <a href=""><img alt="" src="images/uploads/<%= theProduct.getImage3() %>" height="100px" width="90px" class="mr-5 mt-5"></a>

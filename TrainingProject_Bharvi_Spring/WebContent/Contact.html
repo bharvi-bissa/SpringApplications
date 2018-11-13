@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Training Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+<!-- upper navbar -->
+	<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+		<div class="container">
+			<a class="navbar-brand" href="#">Contact us on +91 6012235</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarText"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		  <div class="collapse navbar-collapse" id="navbarText">
+		    <ul class="navbar-nav ml-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> &nbsp SIGN IN <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#"><i class="fas fa-user-plus"></i> &nbsp SIGN UP</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+		      </li>
+		       <li class="nav-item">
+		        <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
+		      </li>
+		       <li class="nav-item">
+		        <a class="nav-link" href="#"><i class="fas fa-envelope-open"></i></a>
+		      </li>
+		       <li class="nav-item">
+		        <a class="nav-link" href="#"><i class="fab fa-google-plus-g"></i></a>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
+	</nav>
+	<!-- upper navbar ends-->
+	
+	<!-- main-navbar starts -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<a class="navbar-brand" href="#"><img src="images/logo.png" width="150px" height="30px"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="#">Home
+					</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"></a>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Electronics </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a> <a
+								class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Men </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a> <a
+								class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Women </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a> <a
+								class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- main-navbar ends -->
+	
+	<div class="container-fluid" id="middle-container">
+		<ul>
+			<li><a href="">Home </a></li>
+			<li><a href="">New Account </a>/</li>
+			<li><a href="">Login </a>/</li>
+		</ul>
+	</div>
+	
+	<!-- contact-section starts -->
+	<div class="container contact_container" style="margin-bottom:2%;">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="contact_section">
+					<h3>WE ARE HERE TO HELP YOU</h3>
+					<p>Lorem Ipsum has been the industry galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially </p>
+					<h3>CONTACT FORM</h3>
+					<form action="contact.jsp" method="post">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+						    	<label for="firstname">First Name</label>
+						    	<input type="firstname" class="form-control" id="" name="fname">
+						    </div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+						    	<label for="lastname">Last Name</label>
+						    	<input type="lastname" class="form-control" id="" name="lname">
+						    </div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="email">Email :</label>
+							    <input type="email" class="form-control" id="email" name="email">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="subject">Subject :</label>
+							    <input type="subject" class="form-control" id="" name="subject">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+							    <label for="subject">Message :</label>
+							    <TextArea class="form-control" name="message"></TextArea>
+							</div>
+						</div>
+						<div class="col-md-12" style="text-align:center">
+							<div class="form-group">
+							    <button type="submit" class="btn btn-primary" value="Send Message"><i class="fas fa-user"></i>&nbsp; Send Message</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 offset-md-1" >
+				<div class="address_section">
+					<h3>ADDRESS</h3>
+					<p>Lorem Ipsum has been the industry galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially </p>
+					<br>
+					<h3>CALL CENTER</h3>
+					<p>
+					Lorem Ipsum has been the industry galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially </p>
+					<p><b>+91 9909 0909999</b></p>
+					<br>
+					<h3>ELECTRONIC SUPPORT</h3>
+					<p>Lorem Ipsum has been the industry galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially </p>
+					<ul>
+						<li><a href="info@techaspect.com">info@techaspect.com</a>
+						<li><a href="info@techaspect.com">Our ticketing support platform</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- contact section ends -->
+	
+
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.178992349964!2d78.3685165147837!3d17.451145005556587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e3b687f237%3A0x2151ef183d15a72b!2sTechAspect+Solutions+Private+Limited!5e0!3m2!1sen!2sin!4v1535697776327" width="100%" height="250px" frameborder="0" style="border:0" allowfullscreen ></iframe>
+	
+		
+	<!-- footer starts -->
+			
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h5>ABOUT US</h5>
+					<br>
+					<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+					<form class="form-inline">
+						<div class="input-group">
+							<input class="form-control" type="search"
+								placeholder="Search" aria-label="Search">
+							<button class="btn btn-success btn-sm"><i class="fas fa-paper-plane"></i></button>
+						</div>
+					</form>
+				</div>
+				<hr>
+				<div class="col-md-3 col-sm-4">
+					<div class="blog-section center">
+						<h5>BLOG</h5>
+						<br>
+						<ul>
+							<li><a href="https://placeholder.com"><img src="https://via.placeholder.com/30x30"></a> &nbsp Sample Link</li>
+							<br>
+							<li><a href="https://placeholder.com"><img src="https://via.placeholder.com/30x30"></a> &nbsp Sample Link</li>
+							<br>
+							<li><a href="https://placeholder.com"><img src="https://via.placeholder.com/30x30"></a> &nbsp Sample Link</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="contact-section center">
+						<h5>CONTACT</h5>
+						<br>
+						<ul>
+							<li>Sample Link</li>
+							<li>Sample Link</li>
+							<li>Sample Link</li>
+						</ul>
+						<button type="submit" class="btn btn-primary btn-md">GO TO CONTACT PAGE</button>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-4 d-none d-sm-block  ">
+					<div class="contact-section">
+						<div class="row" style="padding-bottom:2px;">
+							<div class="col-md-4 col-sm-4">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-6">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-6">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<br>
+							<br>
+							<br>
+							<div class="col-md-4 col-xs-6">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<div class="col-md-4 col-xs-6">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<div class="col-md-4 col-xs-6">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<br>
+							<br>
+							<br>
+							<div class="col-md-4 col-xs-12">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<div class="col-md-4 col-xs-12">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+							<div class="col-md-4 col-xs-12">
+								<a href="https://placeholder.com"><img src="https://via.placeholder.com/50x50"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 center" style="background:#333333;color:#fff;height:auto;line-height:100px;">
+				<p>copyright  &copy 2018 TechAspect Solutions Pvt. Ltd. </p>
+			</div>
+		</div>
+	</div>
+	<!-- footer ends -->
+		<script src="js/jquery-3.3.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>
+	

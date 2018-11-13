@@ -1,11 +1,36 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.mysql.fabric.xmlrpc.base.Array"%>
-<%@page import="com.tadigital.mvc.entity.Customer"%>
+<%@page import="com.techaspect.entity.Customer"%>
 <% 
-	Customer c = (Customer)session.getAttribute("CUSTOMERDATA");
-	if(c ==null){
+	/* String status = (String)session.getAttribute("cookie_validated");
+
+	if(status !=null && status.equals("no")){
+		response.sendRedirect("index.jsp");
+	}else if(status !=null && status.equals("yes")){
+		
+	}else{
+		Cookie[] allCookies = request.getCookies();
+		if(allCookies != null) {
+			for(Cookie cookie : allCookies) {
+				String name = cookie.getName();
+				if(name.equals("bb_webapp")) {
+					String cValue = cookie.getValue();
+					
+					session.setAttribute("email", cValue);
+					
+					response.sendRedirect("LoginProcess.jsp");
+					
+					break; 
+				}
+			}
+		}
+} */
+	Customer customer = (Customer)session.getAttribute("CUSTOMERDATA");
+	if(customer ==null){
 		response.sendRedirect("index.jsp");
 	}
+	
+	System.out.println(customer.getEmail());
 %>
 <%@ include file="HeaderCustomer.jsp" %>
 	
@@ -14,7 +39,7 @@
 			<li style="float:left;font-size:35px;" class="pl-5"><b>DASHBOARD</b></li>
 		</ul>
 		<ul>
-			<li><a href="/">Home </a></li>
+			<li><a href="dashboard.jsp">Home </a></li>
 		</ul>
 	</div>
 
@@ -43,7 +68,7 @@
 				</a>
 			</div>
 			<div class="col-md-4">
-				  <a href="shop">
+				  <a href="MobileSubCategory.jsp">
 					<div class="card bg-light">
 						 <div class="card-body text-center">
 						     <i class="fas fa-cart-arrow-down mb-3" style="font-size: 2em;"></i>

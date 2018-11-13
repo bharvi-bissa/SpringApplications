@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="TrainingProject_Bharvi_Spring">
+    <wb-module deploy-name="TrainingProject_Bharvi">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="TrainingProject_Bharvi_Spring"/>
-        <property name="java-output-path" value="/TrainingProject_Bharvi_Spring/build/classes"/>
+        <property name="context-root" value="trainingproject_bharvi"/>
+        <property name="java-output-path" value="/TrainingProject_Bharvi/build/classes"/>
     </wb-module>
 </project-modules>

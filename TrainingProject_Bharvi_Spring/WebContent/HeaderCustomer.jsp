@@ -1,8 +1,8 @@
-<%@page import="com.tadigital.mvc.entity.Customer"  %>
-<%@page import="com.tadigital.mvc.entity.Product"  %>
+<%@page import="com.techaspect.entity.Product"%>
 <%@page import="java.util.List"%>
-
-
+<%@page import="com.techaspect.CustomerAccount"%>
+<%@page import="com.techaspect.entity.Customer"%>
+<%@page import="com.techaspect.dao.CustomerDao"%>
 <!DOCTYPE html>
 
 <html>
@@ -13,7 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ -->	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
 <!-- upper navbar -->
@@ -29,9 +30,7 @@
 		  <div class="collapse navbar-collapse" id="navbarText">
 		    <ul class="navbar-nav ml-auto">
 		    <% 
-		    	Customer customer = (Customer)session.getAttribute("CUSTOMERDATA");
-		    	List<Product> cart = (List)session.getAttribute("CART");
-		    	 if(customer == null){ 
+		    	if(customer == null){
 		    %>
 
 		      <li class="nav-item active">
@@ -54,18 +53,19 @@
 		      </li>
 		      <% 
 		    	}else{
-		      %> 
+		      %>
 			   <li class="nav-item">
-			        <a class="nav-link" href="" > Hello <%= customer.getFirstName() %> !</a>
+			        <a class="nav-link" href="" >Hello <%= customer.getFirstName() %> !</a>
 			      </li>
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="customerlogout"><i class="fas fa-user-plus"></i> &nbsp LOGOUT</a>
+		        	<a class="nav-link" href="Logout.jsp"><i class="fas fa-user-plus"></i> &nbsp LOGOUT</a>
 		      	</li>
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="MobileSubCategory.jsp"><i class="fas fa-shop"></i> &nbsp Shop</a>
 		      	</li>
 		   		<li class="nav-item">
-		        	<a class="nav-link" href="ShoppingCart.jsp"><i class="fas fa-shopping-cart"></i> <span class="badge badge-light"><%int size= cart.size(); %><%= size %> </span></a>
+		   			<% List<Product> cart = (List)session.getAttribute("CART"); %>
+		        	<a class="nav-link" href="ShoppingCart.jsp"><i class="fas fa-shopping-cart"></i> <span class="badge badge-light"><% int size= cart.size(); %><%= size %></span></a>
 		      	</li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>

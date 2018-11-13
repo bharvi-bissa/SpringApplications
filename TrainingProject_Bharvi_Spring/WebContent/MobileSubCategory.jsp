@@ -1,22 +1,29 @@
-<%@page import="com.tadigital.mvc.entity.Customer"  %>
-<%@page import="com.tadigital.mvc.entity.Product"  %>
+<%@page import="com.techaspect.entity.Product"%>
 <%@page import="java.util.List"%>
+<%@page import="com.techaspect.dao.ProductDao"%>
+<%@page import="com.techaspect.entity.Address"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.tadigital.mvc.entity.Customer"%>
-<%@page import="com.tadigital.mvc.entity.Address"%>
+<%@page import="com.techaspect.entity.Customer"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection,java.util.Iterator"%>
-<% 	Customer c = (Customer)session.getAttribute("CUSTOMERDATA");	 %>		
+<% 	Customer customer = (Customer)session.getAttribute("CUSTOMERDATA");	 %>		
 <%@ include file="HeaderCustomer.jsp" %>
 <%
-		if(c == null){
+		if(customer == null){
 			response.sendRedirect("index.jsp");
 		}
-		ServletContext sc = request.getServletContext();
-		ArrayList<Product> productList = (ArrayList)sc.getAttribute("PRODUCTLIST");
+	
+		ProductDao productDao = ProductDao.getInstance();
 		
+		List<Product> productsList = productDao.getAllProducts();
+		
+		session.setAttribute("PRODUCTSLIST", productsList);
+		
+		
+
+
 %>
 <div id="content">
    <div class="container-fluid" style="min-height:750px">
@@ -34,11 +41,11 @@
                   <h4>Exclusive Offers</h4>
                </div>
                <div class="row">
-                  <img src="Mobiles - Electronics_files/em1.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="Mobiles - Electronics_files/em2.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="./Mobiles - Electronics_files/em3.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="Mobiles - Electronics_files/em4.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block">
+                  <img src="./Mobiles - Electronics_files/em1.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="./Mobiles - Electronics_files/em2.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="./Mobiles - Electronics_files/em3.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="./Mobiles - Electronics_files/em4.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block">
                </div>
                <br>
                <div class="row">
-                  <img src="Mobiles - Electronics_files/em5.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="Mobiles - Electronics_files/em6.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="Mobiles - Electronics_files/em7.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="Mobiles - Electronics_files/em8.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block">
+                  <img src="./Mobiles - Electronics_files/em5.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="./Mobiles - Electronics_files/em6.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="./Mobiles - Electronics_files/em7.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block"> <img src="./Mobiles - Electronics_files/em8.jpg" style="width: 15em; margin-right: 5px; height: 250px;" class="rounded mx-auto d-block">
                </div>
                <br>
             </div>
@@ -375,7 +382,7 @@
             </div>
             <div class="row products products-big pt-5">
    <% 
-		for(Product product : productList) {
+		for(Product product : productsList) {
 			if(product.getSubcategory().equals("mobiles")) {
 	%>
                <div class="col-lg-4 col-md-6">
@@ -385,7 +392,7 @@
                         <div class="text">
                            <h3 class="h52"><%= product.getName() %></h3>
                            <p class="price">&#x20B9;<%= product.getPrice() %></p>
-                           <div> <a href="addtocart<%= product.getId() %>" class="btn btn-primary" style="background-color: #4fbfa8;color:#fff;border:none;border-radius: 0px;"><i class="fas fa-cart-arrow-down"></i>&nbsp;Add To Cart</a> <a href="productdescription<%= product.getId() %>" class="btn btn-primary" style="background-color: #4fbfa8;color:#fff;border:none;border-radius: 0px;">More Info</a></div>
+                           <div> <a href="addtocart?pid=<%= product.getId() %>&jsp=Mobile" class="btn btn-primary" style="background-color: #4fbfa8;color:#fff;border:none;border-radius: 0px;"><i class="fas fa-cart-arrow-down"></i>&nbsp;Add To Cart</a> <a href="ProductDescription.jsp?id=<%= product.getId() %>" class="btn btn-primary" style="background-color: #4fbfa8;color:#fff;border:none;border-radius: 0px;">More Info</a></div>
                         </div>
                      </a>
                   </div>

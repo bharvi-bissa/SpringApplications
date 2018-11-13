@@ -1,7 +1,6 @@
-<%@page import="com.tadigital.mvc.entity.Customer"  %>
-<%@page import="com.tadigital.mvc.entity.Product"  %>
-<%@page import="com.tadigital.mvc.entity.Address"  %>
+<%@page import="com.techaspect.entity.Address"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.techaspect.entity.Customer"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -22,23 +21,40 @@
 	%>
 	
 	<%
-		Customer c = (Customer)session.getAttribute("CUSTOMERDATA");	
+		Customer customer = (Customer)session.getAttribute("CUSTOMERDATA");	
 		Address address = 	(Address)session.getAttribute("ADDRESSDATA");	
-			if(c ==null){
+			if(customer ==null){
 				session.setAttribute("errors","Please login first !");
 				response.sendRedirect("index.jsp");
 			}else{
-			System.out.println("pass:"+c.getPassword());
-			gender = c.getGender();
+			
+			/* Class.forName("com.mysql.jdbc.Driver");
+			
+			
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommercedb","root","");
+			
+			Statement stmt_customer = con.createStatement();
+			Statement stmt_address = con.createStatement(); */
+			
+			//String sql = "SELECT * FROM customer_information WHERE cust_id="+customer.getId();
+			String addr_query = "SELECT * FROM address_information WHERE cust_id="+customer.getId();
+			//System.out.println(sql);
+			
+			//ResultSet rs_customer = stmt_customer.executeQuery(sql);
+			//ResultSet rs_address = stmt_address.executeQuery(addr_query);
+			
+			//rs_customer.next(); 
+			System.out.println("pass:"+customer.getPassword());
+			gender = customer.getGender();
 			 if(gender == null || gender.isEmpty() ){
 				 gender = "";
 			 }
 			 
-			 if(c.getLastName() == null || c.getLastName().isEmpty() ){
+			 if(customer.getLastName() == null || customer.getLastName().isEmpty() ){
 				 lname = "";
 			 }
 			 
-			 if(c.getEmail() == null || c.getEmail().isEmpty() ){
+			 if(customer.getEmail() == null || customer.getEmail().isEmpty() ){
 				 email = "";
 			 }
 			 
@@ -100,7 +116,7 @@
 		<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
 			<div class="row">
 				<div class="col-md-9">
-					<form action="customerchangepassword" method="post">
+					<form action="ChangePassword" method="post">
 						<div class="row">
 							<div class="col-md-4">
 								<label for="pwd">Old Password:</label>
@@ -128,7 +144,7 @@
 					<br><br>
 					<h2>PERSONAL DETAILS</h2>
 					<hr>
-					<form action="updateaccount" method="post">
+					<form action="UpdateAccount" method="post">
 					<div class="row">
 						<div class="col-md-4">
 							<label for="firstname">First Name</label>
@@ -242,6 +258,10 @@
 							<label for="address">Zip:</label>
 							<input type="text" class="form-control" id="" name="zip" value=<%= zip %>>
 						</div>
+						
+						<% 
+							
+							%>
 							<div class="col-md-3">
 								<div class="form-group">
 								  <label for="state">State:</label>

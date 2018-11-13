@@ -1,7 +1,7 @@
 <%@page import="java.util.List"%>
-<%@page import="com.tadigital.mvc.entity.Product"%>
+<%@page import="com.techaspect.entity.Product"%>
 
-<% Customer c = (Customer)session.getAttribute("CUSTOMERDATA"); %>
+<% Customer customer = (Customer)session.getAttribute("CUSTOMERDATA"); %>
 <%@ include file="HeaderCustomer.jsp" %>
 	
 	<div class="container-fluid " id="middle-container">
@@ -13,7 +13,7 @@
 			<li class="d-none d-sm-block"><a href="">SHOPPING CART </a>/</li>
 		</ul>
 	</div>
-	<% List<Product> shoppingCart = (List)session.getAttribute("CART");   int cartSize=shoppingCart.size(); int index=0; int total=0;int subTotal=0;%>
+	<% List<Product> cart = (List)session.getAttribute("CART");   int cartSize=cart.size(); int index=0; int total=0;int subTotal=0;%>
 	<!-- main-content starts -->
 	<div class="container" style="min-height: 850px;">
 		<div class="col-md-12">
@@ -41,14 +41,15 @@
 				  </thead>
 				  <tbody>
 				 <% 
-					for(Product product : shoppingCart) {
+					for(Product product : cart) {
+						
 				%>
 					<tr>
 				      <td><img src="images/uploads/<%= product.getImage1() %>" height="60px" width="60px">&nbsp; &nbsp; &nbsp;<%= product.getName() %></td>
 				      <td><input type="number" name="qty"></td>
 				      <td>&#x20B9;<%= product.getPrice() %></td>
 				      <td>&#x20B9;0</td>
-				      <td><a href="removefromcart<%= product.getId() %>" class="btn btn-default" style="background:none;color:#4fbfa8;"><i class="fas fa-trash" ></Button></td>
+				      <td><a href="removefromcart?id=<%= product.getId() %>&jsp=ShoppingCart&index=<%= index %>" class="btn btn-default" style="background:none;color:#4fbfa8;"><i class="fas fa-trash" ></Button></td>
 				    </tr>
 				    <% 
 				    	index++;

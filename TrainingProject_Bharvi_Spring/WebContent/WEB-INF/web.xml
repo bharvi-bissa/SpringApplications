@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>SpringMVC</display-name>
+  <display-name>TrainingProject_Bharvi</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -9,31 +9,213 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/spring/root-context.xml</param-value>
-  </context-param>
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
   
+  <!-- SignUpProcess Servlet -->
+    <servlet-mapping>
+  		<servlet-name>SignUpProcessServlet</servlet-name>
+  		<url-pattern>/SignUpProcessServlet</url-pattern>
+  	</servlet-mapping>
   <servlet>
-    <servlet-name>SpringFrontController</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	<init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>/WEB-INF/spring/web-context.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-    <multipart-config>
-        <location>/tmp</location>
-        <max-file-size>5242880</max-file-size><!--5MB-->
-        <max-request-size>20971520</max-request-size><!--20MB-->
-        <file-size-threshold>0</file-size-threshold>
-    </multipart-config>
+  		<servlet-name>SignUpProcessServlet</servlet-name>
+  		<servlet-class>com.techaspect.SignUpProcessServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>SpringFrontController</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
+  <!-- SignUpProcess Servlet ends -->
+  
+  <!-- LoginProcess Servlet starts -->
+  <servlet>
+  		<servlet-name>LoginServlet</servlet-name>
+  		<servlet-class>com.techaspect.LoginServlet</servlet-class>
+  </servlet>
+	<servlet-mapping>
+  		<servlet-name>LoginServlet</servlet-name>
+  		<url-pattern>/LoginServlet</url-pattern>
+  	</servlet-mapping>
+  <!-- LoginProcess Servlet ends -->
+  <!-- Change password servlet starts -->
+    <servlet>
+  		<servlet-name>ChangePassword</servlet-name>
+  		<servlet-class>com.techaspect.ChangePassword</servlet-class>
+  </servlet>
+    	<servlet-mapping>
+  		<servlet-name>ChangePassword</servlet-name>
+  		<url-pattern>/ChangePassword</url-pattern>
+  	</servlet-mapping>
+  	<!-- changePassword servlet ends -->
+  	
+  	<!-- UpdateAccount Servelet starts -->
+  <servlet>
+  		<servlet-name>UpdateAccount</servlet-name>
+  		<servlet-class>com.techaspect.UpdateAccount</servlet-class>
+  </servlet>
+  	<servlet-mapping>
+  		<servlet-name>UpdateAccount</servlet-name>
+  		<url-pattern>/UpdateAccount</url-pattern>
+  	</servlet-mapping>
+  	<!-- UpdateAccount Servlet ends -->
+  	
+  	<!-- VendorLoginServlet Starts -->
+  	<servlet>
+  		<servlet-name>VendorLoginServlet</servlet-name>
+  		<servlet-class>com.techaspect.VendorLoginServlet</servlet-class>
+  </servlet>
+  	<servlet-mapping>
+  		<servlet-name>VendorLoginServlet</servlet-name>
+  		<url-pattern>/VendorLoginServlet</url-pattern>
+  	</servlet-mapping>
+  	<!-- VendorLoginServlet Ends -->
+  	
+  	<!-- VendorAddProductServlet Starts -->
+  	<servlet>
+  		<servlet-name>VendorAddProduct</servlet-name>
+  		<servlet-class>com.techaspect.VendorAddProduct</servlet-class>
+  		<multipart-config>
+        	<max-file-size>10485760</max-file-size>
+        	<max-request-size>20971520</max-request-size>
+        	<file-size-threshold>5242880</file-size-threshold>
+    	</multipart-config>
+  </servlet>
+  	<servlet-mapping>
+  		<servlet-name>VendorAddProduct</servlet-name>
+  		<url-pattern>/VendorAddProduct</url-pattern>
+  	</servlet-mapping>
+  	<!-- VendorAddProductServlet Ends -->
+  	
+  	  	<!-- ProductListServlet Starts -->
+  	<servlet>
+  		<servlet-name>ProductListServlet</servlet-name>
+  		<servlet-class>com.techaspect.ProductListServlet</servlet-class>
+  </servlet>
+  	<servlet-mapping>
+  		<servlet-name>ProductListServlet</servlet-name>
+  		<url-pattern>/ProductListServlet</url-pattern>
+  	</servlet-mapping>
+  	<!-- ProductListServlet Ends -->
+  	
+  	<!-- DeleteProductServlet Starts -->
+  	<servlet>
+  		<servlet-name>DeleteProductServlet</servlet-name>
+  		<servlet-class>com.techaspect.DeleteProductServlet</servlet-class>
+  </servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteProductServlet</servlet-name>
+  		<url-pattern>/DeleteProductServlet</url-pattern>
+  	</servlet-mapping>
+  	<!-- DeleteProductServlet Ends -->
+  	
+  	  	<!-- VendorEditProduct Starts -->
+  	<servlet>
+  		<servlet-name>VendorEditProduct</servlet-name>
+  		<servlet-class>com.techaspect.VendorEditProduct</servlet-class>
+  			<multipart-config>
+        	<max-file-size>10485760</max-file-size>
+        	<max-request-size>20971520</max-request-size>
+        	<file-size-threshold>5242880</file-size-threshold>
+    	</multipart-config>
+  </servlet>
+  	<servlet-mapping>
+  		<servlet-name>VendorEditProduct</servlet-name>
+  		<url-pattern>/VendorEditProduct</url-pattern>
+  	</servlet-mapping>
+  	<!-- VendorEditProduct Ends -->
+  	
+  	<!-- Add to cart servlet starts -->
+  	<servlet>
+  		<servlet-name>AddToCartServlet</servlet-name>
+  		<servlet-class>com.techaspect.AddToCartServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>AddToCartServlet</servlet-name>
+  		<url-pattern>/addtocart</url-pattern>
+  	</servlet-mapping>
+  	<!-- Addtocart servlet ends -->
+  	
+  	<!-- remove from cart servlet starts -->
+  	<servlet>
+  		<servlet-name>RemoveFromCartServlet</servlet-name>
+  		<servlet-class>com.techaspect.RemoveFromCartServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>RemoveFromCartServlet</servlet-name>
+  		<url-pattern>/removefromcart</url-pattern>
+  	</servlet-mapping>
+  	<!-- remove from cart servlet ends -->
+  	
+   <servlet>
+  		<servlet-name>ContactServlet</servlet-name>
+  		<servlet-class>com.techaspect.ContactServlet</servlet-class>
+  </servlet>
+   <servlet>
+  		<servlet-name>CustomerAccountServlet</servlet-name>
+  		<servlet-class>com.techaspect.CustomerAccount</servlet-class>
+  </servlet>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/Error.jsp</location>
+  </error-page>
+  
+   <error-page>
+  	<error-code>500</error-code>
+  	<location>/Error.jsp</location>
+  </error-page>
+  
+  	<error-page>
+  		<exception-type>java.lang.NullPointerException</exception-type>
+  		<location>/Exception.jsp</location>
+  	</error-page>
+  	
+  	<error-page>
+  		<exception-type>java.lang.ArithmeticException</exception-type>
+  		<location>/Exception.jsp</location>
+  	</error-page>
+  
+  
+
+ 
+	<servlet-mapping>
+  	<servlet-name>ContactServlet</servlet-name>
+  		<url-pattern>/ContactServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+  		<servlet-name>CustomerAccountServlet</servlet-name>
+  		<url-pattern>/CustomerAccount</url-pattern>
+  	</servlet-mapping>
+  	
+  
+  	
+
+  	
+  	<servlet-mapping>
+		<servlet-name>AddProductProcess</servlet-name>
+		<url-pattern>/AddProductProcess.jsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AddProductProcess</servlet-name>
+		<jsp-file>/AddProductProcess.jsp</jsp-file>
+		
+		<multipart-config>
+        	<max-file-size>10485760</max-file-size>
+        	<max-request-size>20971520</max-request-size>
+        	<file-size-threshold>5242880</file-size-threshold>
+    	</multipart-config>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>EditProductProcess</servlet-name>
+		<url-pattern>/EditProductProcess.jsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EditProductProcess</servlet-name>
+		<jsp-file>/EditProductProcess.jsp</jsp-file>
+		
+		<multipart-config>
+        	<max-file-size>10485760</max-file-size>
+        	<max-request-size>20971520</max-request-size>
+        	<file-size-threshold>5242880</file-size-threshold>
+    	</multipart-config>
+	</servlet>
+  
 </web-app>

@@ -117,7 +117,7 @@
 			<div class="col-md-6">
 				<h2 style="font-weight:lighter">Vendor Login</h2>
 				<br>
-				<form action="vendorlogin" method="post">
+				<form action="VendorLoginServlet" method="post">
 					 <div class="form-group">
 					    <label for="email">Email address:</label>
 					    <input type="email" class="form-control" id="email" name="vendor_email" required>
